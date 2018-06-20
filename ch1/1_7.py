@@ -12,14 +12,13 @@ def set_to_zero(matrix):
                 xzeros.append(x)
                 yzeros.append(y)
 
-    for index in xzeros:
-        mat[index] = 0
+    print(xzeros)
+    print(yzeros)
+    
+    for x in xzeros:
+        matrix[x][0] = 0
 
-    print(mat)
-
-
-
-
+    return matrix
 
 result = set_to_zero(mat)
 print(result)
