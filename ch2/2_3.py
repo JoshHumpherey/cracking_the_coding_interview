@@ -1,4 +1,4 @@
-# Cracking the Coding Interview: 2.2
+# Cracking the Coding Interview: 2.3
 # Written by Josh Humphrey
 
 class ListNode(object):
@@ -7,7 +7,7 @@ class ListNode(object):
         self.val = value
         self.next = None
 
-sample_values = [1, 2, 3, 1, 2, 4, 5, 5, 6, 7, 8]
+sample_values = [1, 2, 3, 4, 5]
 
 def create_linked_list():
     creation_node = ListNode(0)
@@ -26,26 +26,20 @@ def print_linked_list(head):
         head = head.next
     print("Printed values: " + str(head_vals))
 
+def return_val_3(head):
+    while head.val != 3:
+        head = head.next
+    return head
+
 # ------------- Problem ------------- #
 
-def get_linked_length(head):
-    length = 0
-    while head != None:
-        length += 1
-        head = head.next
-    return length
+def delete_node_given_head(head):
+    head.val = head.next.val
+    head.next = head.next.next
 
-def get_nth_node(head, k):
-    length = get_linked_length(head)
-    target = length - k
-    count = 0
-    while head != None:
-        count += 1
-        if count == target:
-            return head.val
-        else:
-            head = head.next
+    return head
 
-head = create_linked_list()
-result = get_nth_node(head,2)
-print(result)
+orig_head = create_linked_list()
+middle_head = return_val_3(orig_head)
+updated_head = delete_node_given_head(middle_head)
+print_linked_list(orig_head)
