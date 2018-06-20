@@ -34,8 +34,8 @@ head = create_linked_list()
 def remove_duplicates(head):
     node_map = set()
     orig_head = head
-    while head != None:
-        key = head.val
+    while head.next != None:
+        key = head.next.val
         if key in node_map:
             head.next = head.next.next
             head = head.next
