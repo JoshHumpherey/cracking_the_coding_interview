@@ -32,15 +32,15 @@ def print_linked_list(head):
 head = create_linked_list()
 
 def remove_duplicates(head):
-    node_map = dict()
+    node_map = set()
     orig_head = head
-    while head != None:
-        key = head.val
+    while head.next != None:
+        key = head.next.val
         if key in node_map:
-            head.val = None
+            head.next = head.next.next
             head = head.next
         else:
-            node_map[key] = key
+            node_map.add(key)
     print("NodeMap: " + str(node_map))
     return orig_head
 
