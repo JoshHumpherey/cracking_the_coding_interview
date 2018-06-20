@@ -11,12 +11,13 @@ sample_values = [1, 2, 3, 1, 2, 4, 5, 5]
 
 def create_linked_list():
     creation_node = ListNode(0)
-    ptr = creation_node
+    old_node = creation_node
     for value in sample_values:
-        ptr = ListNode(value)
-        ptr = ptr.next
+        new_node = ListNode(value)
+        old_node.next = new_node
+        old_node = old_node.next
     print("Original Node Values: " + str(sample_values))
-    return creation_node
+    return creation_node.next
 
 def print_linked_list(head):
     head_vals = []
