@@ -15,6 +15,7 @@ def create_linked_list():
     for value in sample_values:
         new_node = ListNode(value)
         old_node.next = new_node
+        old_node = old_node.next
     print("Original Node Values: " + str(sample_values))
     return creation_node.next
 
