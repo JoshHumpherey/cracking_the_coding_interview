@@ -7,7 +7,7 @@ class ListNode(object):
         self.val = value
         self.next = None
 
-sample_values = [1, 2, 3, 1, 2, 4, 5, 5]
+sample_values = [1, 2, 3, 1, 2, 4, 5, 5, 6, 7, 8]
 
 def create_linked_list():
     creation_node = ListNode(0)
@@ -26,24 +26,25 @@ def print_linked_list(head):
         head = head.next
     print("Printed values: " + str(head_vals))
 
-
-
 # ------------- Problem ------------- #
-
-head = create_linked_list()
 
 def remove_duplicates(head):
     node_map = set()
     orig_head = head
-    while head.next != None:
-        key = head.next.val
+    trail = None
+    while head != None:
+        key = head.val
         if key in node_map:
-            head.next = head.next.next
+            tail.next = head.next
             head = head.next
         else:
             node_map.add(key)
+            tail = head
+            head = head.next
+
     print("NodeMap: " + str(node_map))
     return orig_head
 
-test = create_linked_list()
-print_linked_list(test)
+head = create_linked_list()
+result = remove_duplicates(head)
+print_linked_list(result)
