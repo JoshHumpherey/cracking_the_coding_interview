@@ -7,8 +7,8 @@ class ListNode(object):
         self.val = value
         self.next = None
 
-list1 = [3, 1, 5]
-list2 = [5, 9, 2]
+list1 = [3, 2, 8]
+list2 = [5, 3, 2]
 
 def create_linked_list(the_list):
     creation_node = ListNode(0)
@@ -32,19 +32,22 @@ def print_linked_list(head):
 def add_lists(l1,l2,carry, head):
     if l1 == None and l2 == None:
         return None
+
     node_val = carry
     if l1 != None:
         node_val += l1.val
     if l2 != None:
         node_val += l2.val
 
-    if node_val > 10:
+    if node_val >= 10:
         carry = 1
-
     head.val = node_val % 10
-    head.next = ListNode(0)
-    add_lists(l1.next,l2.next,carry,head.next)
+    if l1.next == None and l2.next == None and carry == 0:
+        head.next = None
+    else:
+        head.next = ListNode(carry)
 
+    add_lists(l1.next,l2.next,carry,head.next)
     return head
 
 
