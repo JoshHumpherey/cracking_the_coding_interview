@@ -1,7 +1,9 @@
 # Cracking the Coding Interview: 8.3
 # Written by Josh Humphrey
+
 l1 = [-10,-5,1,2,2,3,4,7,9,12,13]
 l2 = [-10,-5,2,2,2,3,4,7,9,12,13]
+
 def find_magic_index(arr):
 
     for i in range(len(arr)):

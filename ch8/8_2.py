@@ -2,7 +2,7 @@
 # Written by Josh Humphrey
 # 1's are walkable while 0's are blockades
 
-grid = [[1,0,0,0,0,0,0],
+grid = [[1,0,1,1,1,0,0],
         [1,1,1,1,1,1,1],
         [1,1,0,1,1,0,1]]
 
