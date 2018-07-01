@@ -19,4 +19,4 @@ def routes_up_stairs(step_num):
     print(dynamic[step_num])
     return
 
-routes_up_stairs(37)
+routes_up_stairs(10)
