@@ -1,5 +1,6 @@
 # Cracking the Coding Interview: 5.7
 # Written by Josh Humphrey
+
 bit_string = "1010101"
 
 def swap_bits(bit_string):
