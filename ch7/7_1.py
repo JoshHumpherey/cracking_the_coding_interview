@@ -11,20 +11,25 @@ class deck():
         values = ["1","2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"]
         for suit in suits:
             for val in values:
-                temp_card = self.card(suit,val)
+                if suit == "Hearts" or suit == "Diamonds":
+                    temp_card = self.card(suit,val,"Red")
+                else:
+                    temp_card = self.card(suit,val,"Black")
                 self.available.append(temp_card)
 
     def print_remaining(self):
         for card in self.available:
             suit = card.suit
             val = card.value
-            print("Card[" + str(suit) + ", " + str(val) + "]")
+            color = card.color
+            print("Card[" + str(suit) + ", " + str(val) + ", " + str(color) + "]")
 
     class card():
 
-        def __init__(self, suit, value):
+        def __init__(self, suit, value, color):
             self.suit = suit
             self.value = value
+            self.color = color
 
 
 card_deck = deck()
