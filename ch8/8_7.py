@@ -18,6 +18,6 @@ def get_permutations(string):
             permutations.append(string_list[i] + character)
     return permutations
 
-test_string = "HelloWorld!"
+test_string = "12345"
 result = get_permutations(test_string)
 print(result)
