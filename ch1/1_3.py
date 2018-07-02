@@ -1,29 +1,16 @@
 # Cracking the Coding Interview: 1.3
 # Written by Josh Humphrey
 
-unique = "abcdefgh"
-repeated = "abcabc"
+string1 = "Mr John Smith"
 
-def remove_duplicates(word):
-    char_dict = dict()
-    word_list = list(word)
-    final_list = []
+def urlify(string):
+    REPLACEMENT = "%20"
+    string_list = list(string)
+    for i in range(len(string_list)):
+        if string_list[i] == " ":
+            string_list[i] = REPLACEMENT
 
-    for i in range(len(word_list)):
-        key = word_list[i]
-        if key not in char_dict:
-            char_dict[key] = key
-            final_list.append(key)
+    return ''.join(string_list)
 
-        result = ''.join(final_list)
-    return result
-
-
-
-
-
-result1 = remove_duplicates(unique)
-print("Result 1: " + str(result1))
-
-result2 = remove_duplicates(repeated)
-print("Result 2: " + str(result2))
+res = urlify(string1)
+print(res)

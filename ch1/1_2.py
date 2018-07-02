@@ -1,16 +1,19 @@
 # Cracking the Coding Interview: 1.2
 # Written by Josh Humphrey
 
-null_string  = "abcdef" + '\0'
+import collections
 
-def reverse_null_string(nullstring):
-    null_char = '\x00'
-    string = nullstring.strip(null_char)
-    string_list = list(string)
-    string_list.reverse()
-    final = ''.join(string_list)
-    return final
+string1 = "abcad"
+string2 = "baadc"
+string3 = "bacdd"
 
+def is_permutation(string1, string2):
+    c1 = collections.Counter(string1)
+    c2 = collections.Counter(string2)
+    return c1 == c2
 
-result = reverse_null_string(null_string)
-print(result)
+res1 = is_permutation(string1,string2)
+print(res1)
+
+res2 = is_permutation(string1, string3)
+print(res2)
