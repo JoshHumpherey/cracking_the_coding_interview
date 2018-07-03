@@ -1,26 +1,33 @@
 # Cracking the Coding Interview: 8.10
 # Written by Josh Humphrey
+import time
 
-img = [[0,0,0,0,0,0,0,1,0,0,0,0,0],
-       [0,0,0,0,0,1,1,0,1,0,0,0,0],
-       [0,0,0,0,1,0,0,0,1,0,0,0,0],
+img = [[0,0,0,0,0,1,0,0,0,0,0,0,0],
+       [0,0,0,0,0,1,0,0,1,0,0,0,0],
+       [0,0,0,0,0,0,0,0,1,0,0,0,0],
        [0,0,0,0,0,1,0,0,0,1,0,0,0],
-       [0,0,0,0,0,1,1,1,1,0,0,0,0]]
+       [0,0,0,0,0,1,0,0,0,0,0,0,0],
+       [0,0,0,0,0,1,0,0,0,0,0,0,0]]
 
-def paint_fill(img, row, col, fill_value,orig_val):
-    if img[row][col] == orig_val:
-        img[row][col] = fill_value
-        paint_fill(img,row+1,col,fill_value,orig_val)
-        paint_fill(img,row-1,col,fill_value,orig_val)
-        paint_fill(img,row,col+1,fill_value,orig_val)
-        paint_fill(img,row,col-1,fill_value,orig_val)
-        return img
-    else:
-        return img
+def paint_fill(img, r, c, ncolor, ocolor):
+    if (r < 0) or (c < 0) or (r >= len(img)) or (c >= len(img[0])):
+        return False
+
+    if img[r][c] == ocolor:
+        img[r][c] = ncolor
+        print_matrix(img)
+        time.sleep(1)
+        paint_fill(img, r+1, c, ncolor, ocolor)
+        paint_fill(img, r-1, c, ncolor, ocolor)
+        paint_fill(img, r, c+1, ncolor, ocolor)
+        paint_fill(img, r, c-1, ncolor, ocolor)
+
+    return True
+
 
 def print_matrix(matrix):
     for row in matrix:
         print(row)
+    print("")
 
-result = paint_fill(img,3,7,1,0)
-print_matrix(result)
+paint_fill(img,3,7,1,0)
