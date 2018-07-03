@@ -18,5 +18,9 @@ def paint_fill(img, row, col, fill_value,orig_val):
     else:
         return img
 
+def print_matrix(matrix):
+    for row in matrix:
+        print(row)
+
 result = paint_fill(img,3,7,1,0)
-print(result)
+print_matrix(result)
