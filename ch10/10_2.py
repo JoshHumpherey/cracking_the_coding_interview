@@ -16,8 +16,6 @@ def group_anagrams(anagram_list):
         for item in mapping[key]:
             output.append(item)
     return output
-
-
-
+    
 result = group_anagrams(anagram_list)
 print(result)
