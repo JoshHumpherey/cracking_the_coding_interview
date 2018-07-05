@@ -2,11 +2,15 @@
 # Written by Josh Humphrey
 
 def read_book(file_name):
+    bad_chars = {',','.',';',':'}
     book_array = []
     with open(file_name,'r') as f:
         for line in f:
             for word in line.split():
-                book_array.append(word)
+                for special in bad_chars:
+                    new_word = word.replace(special,"")
+                book_array.append(new_word)
+
     return book_array
 
 def analyze_book(book_arr):
