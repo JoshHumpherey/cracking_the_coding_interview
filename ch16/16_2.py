@@ -2,7 +2,7 @@
 # Written by Josh Humphrey
 
 def read_book(file_name):
-    bad_chars = {',','.',';',':'}
+    bad_chars = {',','.',';',':','"','\''}
     book_array = []
     with open(file_name,'r') as f:
         for line in f:
