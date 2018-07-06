@@ -1,5 +1,6 @@
 # Cracking the Coding Interview: 16.12
 # Written by Josh Humphrey
+
 import xml.etree.ElementTree as ET
 hashmap = {"family":1,"person":2,"firstName":3,"lastName":4,"state":5}
 
