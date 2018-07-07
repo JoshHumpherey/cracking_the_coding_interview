@@ -14,6 +14,5 @@ def successor(node):
 			else:
 				node = node.parent
 		return None
-
 	else:
-        return None
+    	return None
