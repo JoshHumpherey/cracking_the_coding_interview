@@ -11,11 +11,13 @@ class Node():
 
 test_array = [1,2,3,4,5,6,7,8,9,10]
 
-def create_minimal_tree(arr, left, right):
+def create_min_tree(test_array, left, right):
     if (right < left):
         return None
-    mid = len(arr)//2
-    root = Node(arr[mid])
-    root.left = create_minimal_tree(arr, left, mid-1)
-    root.right = create_minimal_tree(arr, mid+1, right)
+    mid = (left + right)//2
+    root = Node(test_array[mid])
+    root.left = create_min_tree(test_array, left, mid-1)
+    root.right = create_min_tree(test_array, mid+1, right)
     return root
+
+result = create_min_tree(test_array, 0, len(test_array)-1)
