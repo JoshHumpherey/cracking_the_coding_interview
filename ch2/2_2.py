@@ -30,21 +30,19 @@ def print_linked_list(head):
 
 def get_linked_length(head):
     length = 0
-    while head != None:
+    while (head.next != None):
         length += 1
         head = head.next
     return length
 
-def get_nth_node(head, k):
-    length = get_linked_length(head)
-    target = length - k
-    count = 0
-    while head != None:
-        count += 1
-        if count == target:
-            return head.val
-        else:
-            head = head.next
+def get_nth_node(head, n):
+    linked_length = get_linked_length(head)
+    target = (linked_length-n)
+    index = 0
+    while (index <= target):
+        head = head.next
+        index += 1
+    return head.val
 
 head = create_linked_list()
 result = get_nth_node(head,2)
