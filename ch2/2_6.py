@@ -34,9 +34,12 @@ def is_LL_palindrome(head):
         temp = str(head.val)
         val_array.append(temp)
         head = head.next
-    before = val_array
-    val_array.reverse()
-    return val_array == before
+    end = len(val_array)-1
+    for i in range(len(val_array)//2):
+        if val_array[i] != val_array[end]:
+            return False
+        end -= 1
+    return True
 
 head = create_linked_list(my_list)
 result = is_LL_palindrome(head)
