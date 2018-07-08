@@ -7,7 +7,7 @@ class ListNode(object):
         self.val = value
         self.next = None
 
-sample_values = [1, 2, 3, 1, 2, 4, 5, 5, 6, 7, 8]
+sample_values = [1, 2, 3, 1, 2, 4, 5, 5, 6, 7, 8, 8]
 
 def create_linked_list():
     creation_node = ListNode(0)
@@ -25,26 +25,39 @@ def print_linked_list(head):
         head_vals.append(head.val)
         head = head.next
     print("Printed values: " + str(head_vals))
-
 # ------------- Problem ------------- #
 
 def remove_duplicates(head):
-    node_map = set()
-    orig_head = head
-    trail = None
-    while head != None:
-        key = head.val
-        if key in node_map:
-            tail.next = head.next
-            head = head.next
-        else:
-            node_map.add(key)
-            tail = head
-            head = head.next
+    orig = head
+    current = head
+    while (current != None):
+        runner = current
+        while (runner.next != None):
+            if (runner.next.val) == current.val:
+                runner.next = runner.next.next
+            else:
+                runner = runner.next
+        current = current.next
+    return orig
 
-    print("NodeMap: " + str(node_map))
-    return orig_head
+def my_remove(head):
+    orig = head
+    nodemap = set()
+    tail = ListNode(None)
+    while (head.next != None):
+        if head.val in nodemap:
+            tail.next = head.next
+            head.next = head.next.next
+        else:
+            nodemap.add(head.val)
+            tail.next = head
+            head = head.next
+    return orig
+
+
 
 head = create_linked_list()
 result = remove_duplicates(head)
 print_linked_list(result)
+result2 = my_remove(head)
+print_linked_list(result2)
