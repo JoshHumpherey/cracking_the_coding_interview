@@ -33,13 +33,12 @@ def return_val_3(head):
 
 # ------------- Problem ------------- #
 
-def delete_node_given_head(head):
+def delete_node(head):
     head.val = head.next.val
     head.next = head.next.next
-
     return head
 
 orig_head = create_linked_list()
 middle_head = return_val_3(orig_head)
-updated_head = delete_node_given_head(middle_head)
+updated_head = delete_node(middle_head)
 print_linked_list(orig_head)
