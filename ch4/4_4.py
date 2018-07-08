@@ -10,9 +10,6 @@ def check_if_balanced(root):
     else:
         return check_if_balanced(root.left) and check_if_balanced(root.right)
 
-
-
-
 def find_height(root):
     if root == None:
         return -1

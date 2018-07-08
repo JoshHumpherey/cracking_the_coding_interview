@@ -1,12 +1,6 @@
 # Cracking the Coding Interview: 4.3
 # Written by Josh Humphrey
 
-class ListNode():
-
-    def __init__(self,data):
-        self.data = data
-        self.next = None
-
 class TreeNode():
 
     def __init(self,data):
@@ -14,12 +8,25 @@ class TreeNode():
         self.left = None
         self.right = None
 
-def list_of_depths(root, depth=0, depth_list=[]):
-	if len(depth_list) <= depth:
-		depth_list += [SinglyLinkedList()]
-	depth_list[depth].append_to_tail(root.data)
-	if root.left != None:
-         list_of_depths(root.left, depth+1, depth_list)
-	if root.right != None:
-         list_of_depths(root.right, depth+1, depth_list)
-    return depth_list
+def listOfDepths(root):
+    if not root:
+        return []
+
+    level_list = []
+    current_level = 0
+    queue = []
+    queue.append((root, current_level))
+
+    while queue:
+        (node, current_level) = queue.pop(0)
+
+        if len(level_list) == current_level:
+            level_list.append([])
+        level_list[current_level].append(node.data)
+        current_level += 1
+
+        if node.left:
+            queue.append((node.left, current_level))
+        if node.right:
+            queue.append((node.right, current_level))
+    return level_list
