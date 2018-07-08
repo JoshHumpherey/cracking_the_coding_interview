@@ -7,8 +7,7 @@ class ListNode(object):
         self.val = value
         self.next = None
 
-list1 = [3, 2, 8]
-list2 = [5, 3, 2]
+my_list = [3, 5, 8, 5, 10, 2, 1]
 
 def create_linked_list(the_list):
     creation_node = ListNode(0)
@@ -28,35 +27,19 @@ def print_linked_list(head):
     print("Printed values: " + str(head_vals))
 
 # ------------- Problem ------------- #
-
-def add_lists(l1,l2,carry, head):
-    if l1 == None and l2 == None:
-        return None
-
-    node_val = carry
-    if l1 != None:
-        node_val += l1.val
-    if l2 != None:
-        node_val += l2.val
-
-    if node_val >= 10:
-        carry = 1
-    head.val = node_val % 10
-    if l1.next == None and l2.next == None and carry == 0:
-        head.next = None
-    else:
-        head.next = ListNode(carry)
-
-    add_lists(l1.next,l2.next,carry,head.next)
-    return head
+def partition(my_list):
+    sorted_list = sorted(my_list)
+    orig = ListNode(None)
+    head = orig
+    for i in range(len(sorted_list)-1):
+        head.val = sorted_list[i]
+        head.next = ListNode(sorted_list[i+1])
+        head = head.next
+    return orig
 
 
 
 
-
-
-master = create_linked_list([0])
-l1 = create_linked_list(list1)
-l2 = create_linked_list(list2)
-result = add_lists(l1,l2,0,master)
+head = create_linked_list(my_list)
+result = partition(my_list)
 print_linked_list(result)
