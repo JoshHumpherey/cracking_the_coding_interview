@@ -40,6 +40,6 @@ def find_word_relation(word1, word2, wordmap):
 shakespeare_array = read_book("Shakespeare.txt")
 wordmap = pre_computation(shakespeare_array)
 res1 = find_word_relation("Pupper", "Thee", wordmap)
-res2 = find_word_relation("We", "Need", wordmap)
+res2 = find_word_relation("Love", "Hate", wordmap)
 res3 = find_word_relation("Romeo", "Juliet", wordmap)
-print("Pupper and Thee: " + str(res1) + ", Art and Thou: " + str(res2) + ", Romeo and Juliet: " + str(res3))
+print("Pupper and Thee: " + str(res1) + ", Love and Hate: " + str(res2) + ", Romeo and Juliet: " + str(res3))
